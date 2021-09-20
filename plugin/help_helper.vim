@@ -8,8 +8,8 @@ if exists('g:loaded_help_helper') || &cp || v:version < 700
 endif
 let g:loaded_help_helper = 1
 
-nnoremap <silent> <Plug>HelperNextTag :<C-U>let v:searchforward=FindHelpTag(v:count1, 1)<CR>
-nnoremap <silent> <Plug>HelperPrevTag :<C-U>let v:searchforward=FindHelpTag(v:count1, 0)<CR>
+nnoremap <silent> <Plug>HelperNextTag :<C-U>let v:searchforward=help_helper#find_tag(v:count1, 1)<CR>
+nnoremap <silent> <Plug>HelperPrevTag :<C-U>let v:searchforward=help_helper#find_tag(v:count1, 0)<CR>
 
 let g:help_helper_use_default_mappings = get(g:, 'help_helper_use_default_mappings', 1)
 
