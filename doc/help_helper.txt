@@ -1,0 +1,11 @@
+*help_helper.txt*  Mappings for navigating help pages
+
+==============================================================================
+Global variables:~
+
+                                         *'g:help_helper_use_default_mappings'*
+Use default mappings for navigation. To use your own mappings, set this to 0. >
+    let g:help_helper_use_default_mappings = 1
+<
+
+==============================================================================
