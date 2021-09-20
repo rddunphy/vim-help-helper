@@ -12,14 +12,20 @@ function! help_helper#find_tag(count, forward) abort
 	let tmpSearchforward = v:searchforward
 	let n = a:count - 1
 	let @/ = '|\zs\S\{-}|'
-	if a:forward
-		execute "silent normal /\<CR>"
-	else
-		execute "silent normal ?\<CR>"
-	endif
-	if n > 0
-		execute "silent normal ".n."n"
-	endif
+	try
+		if a:forward
+			execute "silent normal /\<CR>"
+		else
+			execute "silent normal ?\<CR>"
+		endif
+		if n > 0
+			execute "silent normal ".n."n"
+		endif
+	catch /.*E486:.*/
+		echohl WarningMsg
+		echo 'No tag found'
+		echohl None
+	endtry
 	let @/ = tmpSearchReg
 	return tmpSearchforward
 endfunction
